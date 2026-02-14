@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day - 4 Years of Love ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; overflow-x: hidden; background: #fff; }
+        
+        .hearts { position: fixed; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
+        .heart { position: absolute; font-size: 30px; animation: rise 8s infinite; opacity: 0; }
+        @keyframes rise { 0% { bottom: -50px; opacity: 0; } 50% { opacity: 0.8; } 100% { bottom: 100%; opacity: 0; } }
+        
+        .hero { 
+            height: 100vh; 
+            background: linear-gradient(135deg, #e91e63 0%, #ff6b9d 50%, #ffc1e3 100%);
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before { 
+            content: ''; 
+            position: absolute; 
+            width: 100%; 
+            height: 100%; 
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><text x="50%" y="50%" font-size="40" text-anchor="middle" fill="rgba(255,255,255,0.1)">❤️</text></svg>');
+            animation: float 20s linear infinite;
+        }
+        @keyframes float { 0% { transform: translateY(0); } 100% { transform: translateY(-100px); } }
+        .hero-content { z-index: 2; animation: fadeInUp 1.5s; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
+        .hero h1 { font-family: 'Pacifico', cursive; font-size: 5rem; color: #fff; text-shadow: 0 5px 30px rgba(0,0,0,0.3); margin-bottom: 20px; }
+        .hero .subtitle { font-size: 2.5rem; color: #ffe4e1; margin-bottom: 10px; font-family: 'Great Vibes', cursive; }
+        .hero p { font-size: 1.4rem; color: #fff; margin-bottom: 40px; text-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+        .btn { 
+            padding: 20px 60px; 
+            background: linear-gradient(135deg, #ff69b4, #ff1493); 
+            color: #fff; 
+            text-decoration: none; 
+            border-radius: 50px; 
+            font-weight: 600; 
+            transition: all 0.4s; 
+            display: inline-block;
+            box-shadow: 0 15px 40px rgba(255,20,147,0.4);
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+        .btn:hover { transform: translateY(-5px) scale(1.1); box-shadow: 0 20px 60px rgba(255,20,147,0.6); }
+        
+        .passion { padding: 100px 5%; background: linear-gradient(135deg, #fff0f5 0%, #ffe4e9 100%); color: #333; }
+        .passion h2 { font-family: 'Pacifico', cursive; font-size: 4rem; color: #e91e63; text-align: center; margin-bottom: 80px; }
+        .passion-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 50px; }
+        .passion-card { 
+            background: linear-gradient(135deg, #ff69b4, #ff1493); 
+            padding: 50px; 
+            border-radius: 30px; 
+            box-shadow: 0 20px 60px rgba(255,20,147,0.3);
+            transition: all 0.4s;
+            color: #fff;
+        }
+        .passion-card:hover { transform: translateY(-15px) rotate(2deg); box-shadow: 0 30px 80px rgba(255,20,147,0.5); }
+        .passion-card h3 { font-family: 'Great Vibes', cursive; font-size: 3rem; margin-bottom: 20px; }
+        .passion-card p { font-size: 1.3rem; line-height: 1.8; }
+        
+        .gallery { padding: 100px 5%; background: linear-gradient(135deg, #ffc1e3 0%, #ffb3d9 100%); text-align: center; }
+        .gallery h2 { font-family: 'Pacifico', cursive; font-size: 4rem; color: #e91e63; margin-bottom: 60px; text-shadow: 0 5px 20px rgba(0,0,0,0.1); }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .gallery-item { 
+            position: relative; 
+            overflow: hidden; 
+            border-radius: 25px; 
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2); 
+            transition: all 0.4s; 
+            cursor: pointer;
+        }
+        .gallery-item:hover { transform: scale(1.08) rotate(-3deg); box-shadow: 0 30px 70px rgba(0,0,0,0.3); }
+        .gallery-item img { width: 100%; height: 400px; object-fit: cover; display: block; transition: transform 0.4s; }
+        .gallery-item:hover img { transform: scale(1.15); }
+        
+        .games { padding: 100px 5%; background: linear-gradient(135deg, #fff0f5 0%, #ffe4e9 100%); }
+        .games h2 { font-family: 'Pacifico', cursive; font-size: 4rem; color: #e91e63; text-align: center; margin-bottom: 60px; }
+        .games-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 40px; }
+        .game-card { 
+            background: linear-gradient(135deg, #ff69b4, #ff1493); 
+            border-radius: 30px; 
+            padding: 45px; 
+            box-shadow: 0 20px 60px rgba(255,20,147,0.3); 
+            transition: all 0.4s;
+            text-align: center;
+            color: #fff;
+        }
+        .game-card:hover { transform: translateY(-15px) scale(1.03); box-shadow: 0 30px 80px rgba(255,20,147,0.5); }
+        .game-card h3 { font-size: 2.5rem; margin-bottom: 20px; font-family: 'Great Vibes', cursive; }
+        .game-card p { font-size: 1.1rem; margin-bottom: 25px; line-height: 1.6; }
+        
+        .quiz-container { display: none; margin-top: 25px; }
+        .quiz-container.active { display: block; }
+        .question { font-size: 1.3rem; margin-bottom: 25px; font-weight: 600; }
+        .options { display: flex; flex-direction: column; gap: 15px; }
+        .option { 
+            padding: 18px; 
+            background: rgba(255,255,255,0.2); 
+            color: #fff; 
+            border: 2px solid rgba(255,255,255,0.3); 
+            border-radius: 15px; 
+            cursor: pointer; 
+            transition: all 0.3s;
+            font-size: 1.1rem;
+        }
+        .option:hover { background: rgba(255,255,255,0.3); transform: scale(1.05); border-color: #fff; }
+        .result { margin-top: 25px; font-size: 1.4rem; font-weight: 600; display: none; }
+        
+        .intimate { padding: 100px 5%; background: linear-gradient(135deg, #ffc1e3 0%, #ffb3d9 100%); }
+        .intimate h2 { font-family: 'Pacifico', cursive; font-size: 4rem; color: #e91e63; text-align: center; margin-bottom: 60px; }
+        .intimate-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 35px; }
+        .intimate-note { 
+            background: rgba(255,255,255,0.95); 
+            padding: 45px; 
+            border-radius: 25px; 
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2); 
+            transform: rotate(-2deg);
+            transition: all 0.3s;
+        }
+        .intimate-note:nth-child(even) { transform: rotate(2deg); }
+        .intimate-note:hover { transform: rotate(0deg) scale(1.08); box-shadow: 0 25px 70px rgba(0,0,0,0.3); }
+        .intimate-note p { font-family: 'Great Vibes', cursive; font-size: 2rem; color: #e91e63; line-height: 1.7; }
+        
+        footer { padding: 80px 5%; background: #1a1a1a; text-align: center; color: #fff; }
+        footer h3 { font-family: 'Pacifico', cursive; font-size: 3rem; color: #ff69b4; margin-bottom: 25px; }
+        footer p { font-size: 1.3rem; color: #ddd; line-height: 1.8; }
+        
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3rem; }
+            .passion-grid, .games-grid, .intimate-grid { grid-template-columns: 1fr; }
+            .passion h2, .gallery h2, .games h2, .intimate h2 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts" id="hearts"></div>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="subtitle">Happy Valentine's Day 2025</div>
+            <h1>4 Years of Love & Romance ❤️💕</h1>
+            <p>To my beautiful Valentine - celebrating our love story</p>
+            <a href="#passion" class="btn">Explore Our Love</a>
+        </div>
+    </section>
+
+    <section class="passion" id="passion">
+        <h2>Why I Love You So Much 💕</h2>
+        <div class="passion-grid">
+            <div class="passion-card">
+                <h3>Your Beautiful Smile</h3>
+                <p>Your smile lights up my entire world. Every time I see it, my heart skips a beat. Four years later, and you still give me butterflies every single time you look at me.</p>
+            </div>
+            <div class="passion-card">
+                <h3>Your Sweet Kisses</h3>
+                <p>Every kiss from you is magical. Soft, sweet, and full of love—each one tells our beautiful story. From gentle morning kisses to romantic goodnight kisses, I cherish them all.</p>
+            </div>
+            <div class="passion-card">
+                <h3>Your Loving Heart</h3>
+                <p>Your kindness, your compassion, your beautiful soul—everything about you makes me fall deeper in love. You have the most amazing heart, and I'm so lucky to be loved by you.</p>
+            </div>
+            <div class="passion-card">
+                <h3>Your Adorable Moods</h3>
+                <p>Even when you're moody, you're absolutely adorable. Your different moods make you unique and real. I love every version of you—happy, sad, silly, or serious. You're perfect just the way you are.</p>
+            </div>
+            <div class="passion-card">
+                <h3>Our Special Connection</h3>
+                <p>The bond we share is something truly special. We understand each other, support each other, and grow together. Our love story is my favorite, and I can't wait to write more chapters with you.</p>
+            </div>
+            <div class="passion-card">
+                <h3>Our Beautiful Memories</h3>
+                <p>Every moment we've shared together is precious. From our first date to today, we've created countless beautiful memories. Here's to making many more unforgettable moments together.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery">
+        <h2>Our Beautiful Memories Together 📸💕</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="original_83484efc-bb61-41b1-9f74-c88225514943_Snapchat-1586395043~2.jpg" alt="Us"></div>
+            <div class="gallery-item"><img src="PXL_20250629_113007742.PORTRAIT.jpg" alt="Together"></div>
+            <div class="gallery-item"><img src="PXL_20250629_121826413.jpg" alt="Love"></div>
+            <div class="gallery-item"><img src="PXL_20260201_090517716.jpg" alt="Forever"></div>
+            <div class="gallery-item"><img src="PXL_20260201_090812351.MP~2.jpg" alt="Always"></div>
+            <div class="gallery-item"><img src="PXL_20260201_090517716.jpg" alt="Romance"></div>
+        </div>
+    </section>
+
+    <section class="games">
+        <h2>Fun Valentine's Games for Us 💕🎮</h2>
+        <div class="games-grid">
+            <div class="game-card">
+                <h3>How Well Do You Know Me? ❤️</h3>
+                <p>Let's test how well you remember our special moments...</p>
+                <button class="btn" onclick="startIntimateQuiz()">Start Quiz</button>
+                <div class="quiz-container" id="intimateQuiz">
+                    <div class="question" id="intimateQuestion"></div>
+                    <div class="options" id="intimateOptions"></div>
+                    <div class="result" id="intimateResult"></div>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <h3>Romantic Truth or Dare 💕</h3>
+                <p>Ready for some fun? Let's play!</p>
+                <button class="btn" onclick="getDirtyTruthOrDare()">Spin It!</button>
+                <div class="result" id="dirtyResult" style="display: block; margin-top: 25px; min-height: 80px;"></div>
+            </div>
+
+            <div class="game-card">
+                <h3>Our Love Meter 💖💯</h3>
+                <p>How strong is our love today?</p>
+                <button class="btn" onclick="calculatePassion()">Calculate Love</button>
+                <div class="result" id="passionResult" style="display: block; margin-top: 25px; min-height: 80px;"></div>
+            </div>
+
+            <div class="game-card">
+                <h3>Kiss Counter 💋</h3>
+                <p>How many kisses do you owe me?</p>
+                <button class="btn" onclick="addKiss()">Send Kiss!</button>
+                <div class="result" id="kissCount" style="display: block; margin-top: 25px; font-size: 3.5rem;">0 💋</div>
+            </div>
+
+            <div class="game-card">
+                <h3>Sweet Compliments 🌹</h3>
+                <p>Want to hear something sweet?</p>
+                <button class="btn" onclick="getDesire()">Tell Me</button>
+                <div class="result" id="desireResult" style="display: block; margin-top: 25px; min-height: 80px;"></div>
+            </div>
+
+            <div class="game-card">
+                <h3>Love Language 🌹💕</h3>
+                <p>How do I want to show my love today?</p>
+                <button class="btn" onclick="getMood()">Guess My Mood</button>
+                <div class="result" id="moodResult" style="display: block; margin-top: 25px; min-height: 80px;"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="intimate">
+        <h2>Love Notes Just For You 💕</h2>
+        <div class="intimate-grid">
+            <div class="intimate-note"><p>"I love the way you look at me with those beautiful eyes. Your gaze makes my heart melt every time."</p></div>
+            <div class="intimate-note"><p>"Your moody side is adorable. I love making you smile and seeing your face light up with happiness."</p></div>
+            <div class="intimate-note"><p>"4 years and you still make my heart race. You're my best friend, my soulmate, my everything."</p></div>
+            <div class="intimate-note"><p>"I can't wait to spend forever wrapped in your arms, creating beautiful memories together."</p></div>
+            <div class="intimate-note"><p>"You're not just beautiful—you're absolutely stunning, and I'm completely in love with you."</p></div>
+            <div class="intimate-note"><p>"Every time we're together, it feels magical. You still take my breath away after all this time."</p></div>
+            <div class="intimate-note"><p>"I love how you're sweet and caring, always making me feel special and loved."</p></div>
+            <div class="intimate-note"><p>"Being in your arms is my favorite place in the world. Nothing else matters when I'm with you."</p></div>
+            <div class="intimate-note"><p>"I want to spend forever making you feel loved, cherished, and absolutely adored."</p></div>
+        </div>
+    </section>
+
+    <footer>
+        <h3>Happy Valentine's Day & 4th Anniversary! 💕❤️</h3>
+        <p>You're my Valentine today and every day. My love, my best friend, my forever.<br>Here's to many more years of love, laughter, and beautiful memories together.<br>I love you more than words can say. Happy Valentine's Day! ❤️💕</p>
+    </footer>
+
+    <script>
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = ['❤️', '💕', '💖', '💝'][Math.floor(Math.random() * 4)];
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDuration = (Math.random() * 3 + 5) + 's';
+            heart.style.fontSize = (Math.random() * 20 + 25) + 'px';
+            document.getElementById('hearts').appendChild(heart);
+            setTimeout(() => heart.remove(), 8000);
+        }
+        setInterval(createHeart, 600);
+
+        const intimateQuizData = [
+            { q: "What's my favorite thing about you?", options: ["Your smile", "Your laugh", "Your kindness", "Everything"], correct: 3 },
+            { q: "What makes me fall in love with you more?", options: ["Your caring nature", "Your beautiful eyes", "Your sweet personality", "All of the above"], correct: 3 },
+            { q: "When do I love you the most?", options: ["Morning", "Night", "Always", "When you smile"], correct: 2 }
+        ];
+        let currentQ = 0, score = 0;
+
+        function startIntimateQuiz() {
+            document.getElementById('intimateQuiz').classList.add('active');
+            currentQ = 0; score = 0;
+            showIntimateQuestion();
+        }
+
+        function showIntimateQuestion() {
+            if (currentQ >= intimateQuizData.length) {
+                document.getElementById('intimateResult').style.display = 'block';
+                document.getElementById('intimateResult').innerHTML = `You scored ${score}/${intimateQuizData.length}! ${score === intimateQuizData.length ? '💕 You know me so well! You\'re amazing! ❤️' : '💖 We still have so much to learn about each other! 😊'}`;
+                return;
+            }
+            const q = intimateQuizData[currentQ];
+            document.getElementById('intimateQuestion').textContent = q.q;
+            document.getElementById('intimateOptions').innerHTML = q.options.map((opt, i) => 
+                `<button class="option" onclick="checkIntimateAnswer(${i})">${opt}</button>`
+            ).join('');
+        }
+
+        function checkIntimateAnswer(selected) {
+            if (selected === intimateQuizData[currentQ].correct) score++;
+            currentQ++;
+            showIntimateQuestion();
+        }
+
+        const dirtyTruths = [
+            "What's your favorite memory of us? 💕",
+            "When did you first realize you loved me? 💭",
+            "What do you love most about our relationship? ❤️",
+            "What's the sweetest thing I've ever done for you? 🌹",
+            "What makes you smile when you think of me? 😊"
+        ];
+        const dirtyDares = [
+            "Send me a voice note saying 'I love you' in 3 different ways 💕",
+            "Tell me your favorite thing about me 😊",
+            "Promise me 20 kisses when we meet next 💋",
+            "Plan our perfect Valentine's date 🌹",
+            "Tell me 5 things you love about me ❤️"
+        ];
+
+        function getDirtyTruthOrDare() {
+            const isTruth = Math.random() > 0.5;
+            const list = isTruth ? dirtyTruths : dirtyDares;
+            const item = list[Math.floor(Math.random() * list.length)];
+            document.getElementById('dirtyResult').innerHTML = `<strong>${isTruth ? 'TRUTH' : 'DARE'}:</strong><br>${item}`;
+        }
+
+        function calculatePassion() {
+            const percent = Math.floor(Math.random() * 11) + 90;
+            const emoji = percent > 95 ? '💕💕💕' : '💕💕';
+            document.getElementById('passionResult').innerHTML = `Our love is <strong>${percent}%</strong>! ${emoji}<br>${percent > 95 ? 'Perfect match! 💖' : 'Amazing love! 💕'}`;
+        }
+
+        let kisses = 0;
+        function addKiss() {
+            kisses++;
+            document.getElementById('kissCount').textContent = kisses + ' 💋';
+            if (kisses === 10) alert('10 kisses! But I want more... 😘');
+            if (kisses === 50) alert('50 kisses! You\'re making me blush! 😍');
+        }
+
+        const desires = [
+            "You're the most beautiful person I've ever known 🌹",
+            "Your smile makes my entire day brighter ✨",
+            "I love you more with each passing day 💕",
+            "You make my heart skip a beat every time I see you 💖",
+            "Being with you is my favorite place to be 🥰",
+            "You're my dream come true, my perfect Valentine 💝"
+        ];
+        function getDesire() {
+            document.getElementById('desireResult').textContent = desires[Math.floor(Math.random() * desires.length)];
+        }
+
+        const moods = [
+            "Romantic: I want to cuddle and watch the stars with you 🌹",
+            "Sweet: I want to hold your hand and tell you how much I love you 💕",
+            "Affectionate: I want to shower you with kisses and hugs 💖",
+            "Playful: I want to make you laugh and smile all day 😊",
+            "Loving: I want to show you how much you mean to me 💝"
+        ];
+        function getMood() {
+            document.getElementById('moodResult').textContent = moods[Math.floor(Math.random() * moods.length)];
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
